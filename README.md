@@ -1,6 +1,6 @@
 # bs-hlc
 
-Hybrid Logical Clocks implemented in Reason/BuckleScript
+[Hybrid Logical Clocks](https://muratbuffalo.blogspot.com/2014/07/hybrid-logical-clocks.html) implemented in Reason/BuckleScript.
 
 ## Installation
 
@@ -41,4 +41,4 @@ let receiveMessage = remoteMessage => {
 
 ## Credits
 
-This is a BuckleScript port of @jlongster's [timestamp.js](https://github.com/jlongster/crdt-example-app/blob/3acd31069db65607bacd88a71c89fb43e53b6ec8/shared/timestamp.js) and @jaredly's [hlc.js](https://github.com/jaredly/hybrid-logical-clocks-example/blob/58af43df953b2a5eda806d4bfde354ad9406c188/src/hlc.js).
+This is a BuckleScript port of [jlongster](https://github.com/jlongster)'s [timestamp.js](https://github.com/jlongster/crdt-example-app/blob/3acd31069db65607bacd88a71c89fb43e53b6ec8/shared/timestamp.js) and [jaredly](https://github.com/jaredly)'s [hlc.js](https://github.com/jaredly/hybrid-logical-clocks-example/blob/58af43df953b2a5eda806d4bfde354ad9406c188/src/hlc.js).
