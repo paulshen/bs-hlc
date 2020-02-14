@@ -8,6 +8,8 @@ exception ClockDriftError;
 exception CounterOverflowError;
 exception DuplicateNodeError(string);
 
+let make: (~node: string) => t;
+
 let increment: t => t;
 let receive: (t, t) => t;
 

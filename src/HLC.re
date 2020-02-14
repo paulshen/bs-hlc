@@ -18,6 +18,8 @@ exception ClockDriftError;
 exception CounterOverflowError;
 exception DuplicateNodeError(string);
 
+let make = (~node: string) => {timestamp: Js.Date.now(), counter: 0, node};
+
 let increment = (clock: t) => {
   let now = Js.Date.now();
 
