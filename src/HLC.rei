@@ -5,7 +5,7 @@ type t = {
 };
 
 exception ClockDriftError;
-exception OverflowError;
+exception CounterOverflowError;
 exception DuplicateNodeError(string);
 
 let setMaxDrift: float => unit;

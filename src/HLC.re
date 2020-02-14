@@ -9,7 +9,7 @@ type t = {
   node: string,
 };
 exception ClockDriftError;
-exception OverflowError;
+exception CounterOverflowError;
 exception DuplicateNodeError(string);
 
 let setMaxDrift = value => {
@@ -27,7 +27,7 @@ let increment = (clock: t) => {
     };
     let newCounter = clock.counter + 1;
     if (newCounter > 65535) {
-      raise(OverflowError);
+      raise(CounterOverflowError);
     };
     {...clock, counter: newCounter};
   };
@@ -63,7 +63,7 @@ let receive = (localClock: t, remoteClock: t) => {
     raise(ClockDriftError);
   };
   if (newCounter > 65535) {
-    raise(OverflowError);
+    raise(CounterOverflowError);
   };
 
   {...localClock, timestamp: newTimestamp, counter: newCounter};
