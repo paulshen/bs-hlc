@@ -3,6 +3,7 @@ module Config = {
   let maxDrift = ref(60000.);
   // Radix used to serialize counter to string
   let counterRadix = 36;
+  let maxCounter = Js.Math.pow_int(~base=counterRadix, ~exp=4);
 
   let setMaxDrift = (value: float): unit => {
     maxDrift := value;
@@ -30,7 +31,7 @@ let increment = (clock: t) => {
       raise(ClockDriftError);
     };
     let newCounter = clock.counter + 1;
-    if (newCounter > 65535) {
+    if (newCounter >= Config.maxCounter) {
       raise(CounterOverflowError);
     };
     {...clock, counter: newCounter};
@@ -66,7 +67,7 @@ let receive = (localClock: t, remoteClock: t) => {
   if (newTimestamp -. now > Config.maxDrift^) {
     raise(ClockDriftError);
   };
-  if (newCounter > 65535) {
+  if (newCounter >= Config.maxCounter) {
     raise(CounterOverflowError);
   };
 
